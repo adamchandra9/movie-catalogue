@@ -1,3 +1,5 @@
+import TheMovieDbSource from "../../data/themoviedb-source";
+
 const NowPlaying = {
   async render() {
     return `
@@ -5,7 +7,10 @@ const NowPlaying = {
     `;
   },
 
-  async afterRender() {},
+  async afterRender() {
+    const movies = await TheMovieDbSource.nowPlayingMovies();
+    console.log(movies);
+  },
 };
 
 export default NowPlaying;
