@@ -3,6 +3,8 @@ import "../styles/style.css";
 import "../styles/responsive.css";
 
 import App from "./views/app";
+import CONFIG from "./globals/config";
+import WebSocketInitiator from "./utils/websocket-initiator";
 import swRegister from "./utils/sw-register";
 
 const app = new App({
@@ -18,4 +20,5 @@ window.addEventListener("hashchange", () => {
 window.addEventListener("load", () => {
   app.renderPage();
   swRegister();
+  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
 });
